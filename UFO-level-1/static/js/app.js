@@ -26,4 +26,8 @@ function runEnter() {
 
     console.log(inputValue);
     console.log(sightings);
+
+    var filteredData = sightings.filter(dateSight => dateSight.datetime === inputValue);
+
+    console.log(filteredData);
 };
