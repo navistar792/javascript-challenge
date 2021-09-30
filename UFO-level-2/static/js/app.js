@@ -36,35 +36,46 @@ reset.on("click", clear)
 // Complete the event handler function for the form
 function runEnter() {
 
+    
     console.log("Button, input and event handlers working ok so far")
       // Prevent the page from refreshing
     d3.event.preventDefault();
 
-    // delete existing table?
-    d3.selectAll("tbody > *").remove();
-
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
+    var inputElement1 = d3.select("#city");
 
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
+    var inputValue1 = inputElement1.property("value");
 
-    console.log(inputValue);
-    console.log(sightings);
+    if (inputValue !=''&& inputValue1===''){}
 
-    var filteredData = sightings.filter(dateSight => dateSight.datetime === inputValue);
+    else if (inputValue1 !=''&& inputValue ==='');
 
-    console.log(filteredData);
+    
 
-    // BONUS: Refactor to use Arrow Functions!
-    filteredData.forEach((ufoReport) => {
-      var tbody = d3.select("tbody");
-      var row = tbody.append("tr");
-      Object.entries(ufoReport).forEach(([key, value]) => {
-      var cell = row.append("td");
-      cell.text(value);
+    if (inputValue !=''){
+
+        // delete existing table?
+      d3.selectAll("tbody > *").remove();  
+      console.log(inputValue);
+      console.log(sightings);
+
+      var filteredData = sightings.filter(dateSight => dateSight.datetime === inputValue);
+
+      console.log(filteredData);
+
+      // BONUS: Refactor to use Arrow Functions!
+      filteredData.forEach((ufoReport) => {
+        var tbody = d3.select("tbody");
+        var row = tbody.append("tr");
+        Object.entries(ufoReport).forEach(([key, value]) => {
+        var cell = row.append("td");
+        cell.text(value);
+        });
       });
-    });
+};
 };
 
 
