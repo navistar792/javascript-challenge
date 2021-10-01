@@ -30,7 +30,7 @@ var reset = d3.select("#clearButton");
 // };
 button.on("click", runEnter);
 box.on("submit",runEnter);
-reset.on("click", clear)
+reset.on("click", refreshPage);
 
 
 // Complete the event handler function for the form
@@ -51,9 +51,6 @@ function runEnter() {
 
         // delete existing table?
       d3.selectAll("tbody > *").remove();  
-      console.log(inputValue);
-      console.log(sightings);
-
       var filteredData = sightings.filter(dateSight => dateSight.datetime === inputValue);
 
       console.log(filteredData);
@@ -68,15 +65,10 @@ function runEnter() {
         });
       });
 };
+console.log(filteredData);
 };
 
 
-// function clear() {
-//   // Select the 'myInput' search box, and set it's value to an empty String
-//   // d3.select("#datetime").value = "";
-//   // Call seach, which should reset the result list
-//   reload();
-// };  
 
 function refreshPage(){
   window.location.reload();
