@@ -56,15 +56,9 @@ function runEnter() {
     var inputValue3 = inputElement3.property("value");
     var inputValue4 = inputElement4.property("value");
 
-    if (inputValue !='' && inputValue1 ===''){
-      var filteredData = sightings.filter(dateSight => dateSight.datetime === inputValue);
-    };
-    if (inputValue ==='' && inputValue1 !=''){
-      var filteredData = sightings.filter(dateSight => dateSight.city === inputValue1);
-    };
-    if (inputValue !='' && inputValue1 !=''){
-      var filteredData = sightings.filter(dateSight => (dateSight.city === inputValue1 && dateSight.datetime === inputValue));
-    };
+
+filteredData = sightings.filter(dateSight => dateSight.datetime === inputValue);
+ 
 
     console.log(filteredData);
     
